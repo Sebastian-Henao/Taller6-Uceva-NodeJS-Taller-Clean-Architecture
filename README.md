@@ -100,4 +100,31 @@ npm run start
 http://localhost:3000/api/docs
 http://localhost:3000/api/users/{countUsers}
 http://localhost:3000/api/products/{countProducts}
+http://localhost:3000/api/music/{countMusic}
 ```
+
+## Módulo de música
+
+`GET /api/music/{countMusic}` genera una lista de canciones simuladas. El parámetro
+`countMusic` debe ser un entero positivo seguro. Cada canción contiene `id`,
+`title`, `artist`, `album`, `genre` y `duration` (en segundos).
+
+La especificación OpenAPI y la interfaz interactiva están disponibles en
+`http://localhost:3000/api/docs`.
+
+El módulo sigue las capas de Clean Architecture:
+
+- `src/domain/models/music.model.ts`: modelo de canción.
+- `src/domain/repositories/music.repository.ts`: contrato del repositorio.
+- `src/application/usecases/get-all-music.usecase.ts`: caso de uso de consulta.
+- `src/infrastructure/datasources/music.datasource.ts`: generación de datos simulados.
+- `src/infrastructure/repositories/music.repository.impl.ts`: implementación del contrato.
+- `src/infrastructure/web/routes/routes.ts`: composición global de dependencias y registro de rutas.
+- `src/infrastructure/web/routes/music.routes.ts`: ruta HTTP del módulo.
+- `src/infrastructure/web/controllers/music.controller.ts`: validación del parámetro y respuesta HTTP.
+
+## Pruebas unitarias
+
+Ejecuta `npm test` para correr las pruebas unitarias del módulo de música. El
+comando mide la cobertura de sus casos de uso, datasource, repositorio y
+controlador, y exige al menos un 90 % de cobertura de líneas.
