@@ -100,4 +100,16 @@ npm run start
 http://localhost:3000/api/docs
 http://localhost:3000/api/users/{countUsers}
 http://localhost:3000/api/products/{countProducts}
+http://localhost:3000/api/junglers/{countJunglers}
 ```
+
+## Módulo: Junglers (League of Legends)
+Módulo implementado bajo Clean Architecture que expone información de los 20 campeones emblemáticos de la jungla de League of Legends con datos en memoria.
+
+- **Modelo de Dominio:** `src/domain/models/jungler.model.ts`
+- **Contrato del Repositorio:** `src/domain/repositories/jungler.repository.ts`
+- **Caso de Uso:** `src/application/usecases/get-all-junglers.usecase.ts`
+- **Datasource en Memoria:** `src/infrastructure/datasources/jungler.datasource.ts`
+- **Implementación del Repositorio:** `src/infrastructure/repositories/jungler.repository.impl.ts`
+- **Controlador HTTP:** `src/infrastructure/web/controllers/junglers.controller.ts`
+- **Rutas y Swagger OpenAPI:** `src/infrastructure/web/routes/junglers.routes.ts`
