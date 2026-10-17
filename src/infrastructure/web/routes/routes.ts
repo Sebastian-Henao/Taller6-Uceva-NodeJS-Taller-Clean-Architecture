@@ -1,13 +1,20 @@
 import { Router } from "express";
 import { UsersRoutes } from "./users.routes";
 import { ProductsRoutes } from "./products.routes";
+import { JunglersRoutes } from "./junglers.routes";
+import { PersonajesRoutes } from "./personajes.routes";
+import { MusicRoutes } from "./music.routes";
+import { MusicDatasource } from "../../datasources/music.datasource";
+import { MusicRepositoryImpl } from "../../repositories/music.repository.impl";
+import { GetAllMusicUseCase } from "../../../application/usecases/get-all-music.usecase";
+import { MusicController } from "../controllers/music.controller";
 
 /**
  * Clase encargada de centralizar todas las rutas de la aplicación.
  *
  * @remarks
  * Proporciona un único punto de acceso a los endpoints
- * del backend, agrupando los módulos de usuarios y productos.
+ * del backend, agrupando los módulos de usuarios, productos, junglers, personajes y música.
  *
  * @example
  * ```ts
@@ -27,10 +34,16 @@ export class AppRoutes {
    */
   static get routes(): Router {
     const router = Router();
+    const musicRepository = new MusicRepositoryImpl(new MusicDatasource());
+    const getAllMusic = new GetAllMusicUseCase(musicRepository);
+    const musicController = new MusicController(getAllMusic);
 
-    // Definir rutas
+    // Composición global de dependencias y registro de rutas.
     router.use("/api/users", UsersRoutes.routes);
     router.use("/api/products", ProductsRoutes.routes);
+    router.use("/api/junglers", JunglersRoutes.routes);
+    router.use("/api/personajes", PersonajesRoutes.routes);
+    router.use("/api/music", MusicRoutes.createRoutes(musicController));
 
     return router;
   }
