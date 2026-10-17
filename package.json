@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsnd --respawn --clear src/app.ts"
+    "start": "tsnd --respawn --clear src/app.ts",
+    "test": "node --require ts-node/register --test --experimental-test-coverage --test-coverage-include=src/application/usecases/get-all-music.usecase.ts --test-coverage-include=src/infrastructure/datasources/music.datasource.ts --test-coverage-include=src/infrastructure/repositories/music.repository.impl.ts --test-coverage-include=src/infrastructure/web/controllers/music.controller.ts --test-coverage-lines=90"
   },
   "keywords": [],
   "author": "",

@@ -124,4 +124,81 @@
  *           type: string
  *           example: Onda Sónica, Salvaguarda, Tempestad, Ira del Dragón
  */
+
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     Personaje:
+ *       type: object
+ *       description: Representa un personaje
+ *       required:
+ *         - id
+ *         - nombre
+ *         - alias
+ *         - juego
+ *         - habilidad
+ *         - rol
+ *       properties:
+ *         id:
+ *           type: number
+ *           example: 1
+ *         nombre:
+ *           type: string
+ *           example: El caballero
+ *         alias:
+ *           type: string
+ *           example: Caballero oscuro
+ *         juego:
+ *           type: string
+ *           example: Hollow Knight
+ *         habilidad:
+ *           type: string
+ *           example: Combate cuerpo a cuerpo
+ *         rol:
+ *           type: string
+ *           enum:
+ *             - Vanguardia
+ *             - Ladron
+ *             - Jefe
+ *             - Ilusionista
+ *             - Explorador
+ *           example: Vanguardia
+ */
+
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     Music:
+ *       type: object
+ *       description: Representa una canción simulada para el módulo de música
+ *       required:
+ *         - id
+ *         - title
+ *         - artist
+ *         - album
+ *         - genre
+ *         - duration
+ *       properties:
+ *         id:
+ *           type: integer
+ *           example: 1
+ *         title:
+ *           type: string
+ *           example: Midnight Echoes
+ *         artist:
+ *           type: string
+ *           example: Alex Rivera
+ *         album:
+ *           type: string
+ *           example: City Lights
+ *         genre:
+ *           type: string
+ *           example: Indie
+ *         duration:
+ *           type: integer
+ *           description: Duración en segundos
+ *           example: 215
+ */
 export {};
