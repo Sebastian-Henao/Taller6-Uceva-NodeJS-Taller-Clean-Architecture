@@ -112,4 +112,40 @@
  *             - Explorador
  *           example: Vanguardia
  */
+
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     Music:
+ *       type: object
+ *       description: Representa una canción simulada para el módulo de música
+ *       required:
+ *         - id
+ *         - title
+ *         - artist
+ *         - album
+ *         - genre
+ *         - duration
+ *       properties:
+ *         id:
+ *           type: integer
+ *           example: 1
+ *         title:
+ *           type: string
+ *           example: Midnight Echoes
+ *         artist:
+ *           type: string
+ *           example: Alex Rivera
+ *         album:
+ *           type: string
+ *           example: City Lights
+ *         genre:
+ *           type: string
+ *           example: Indie
+ *         duration:
+ *           type: integer
+ *           description: Duración en segundos
+ *           example: 215
+ */
 export {};
