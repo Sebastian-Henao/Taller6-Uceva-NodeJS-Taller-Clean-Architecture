@@ -5,7 +5,19 @@ import { PersonajeDatasource } from "../../datasources/personaje.datasource";
 import { GetAllPersonajesUseCase } from "../../../application/usecases/get-all-personajes.usecase";
 import { PersonajesController } from "../controllers/personajes.controller";
 
+/**
+ * Configura las rutas HTTP del módulo de personajes.
+ *
+ * @remarks
+ * Construye las dependencias del módulo y registra el endpoint para
+ * obtener una cantidad solicitada de personajes.
+ */
 export class PersonajesRoutes {
+    /**
+     * Crea el router de personajes.
+     *
+     * @returns Router de Express con las rutas de personajes
+     */
     static get routes(): Router {
         const router = Router();
         const repository = new PersonajeRepositoryImpl(new PersonajeDatasource());
