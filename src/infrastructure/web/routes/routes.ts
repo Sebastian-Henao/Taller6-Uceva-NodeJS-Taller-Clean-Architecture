@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { UsersRoutes } from "./users.routes";
 import { ProductsRoutes } from "./products.routes";
+import { JunglersRoutes } from "./junglers.routes";
 import { PersonajesRoutes } from "./personajes.routes";
 import { MusicRoutes } from "./music.routes";
 import { MusicDatasource } from "../../datasources/music.datasource";
@@ -13,7 +14,7 @@ import { MusicController } from "../controllers/music.controller";
  *
  * @remarks
  * Proporciona un único punto de acceso a los endpoints
- * del backend, agrupando los módulos de usuarios, productos, personajes y música.
+ * del backend, agrupando los módulos de usuarios, productos, junglers, personajes y música.
  *
  * @example
  * ```ts
@@ -40,6 +41,7 @@ export class AppRoutes {
     // Composición global de dependencias y registro de rutas.
     router.use("/api/users", UsersRoutes.routes);
     router.use("/api/products", ProductsRoutes.routes);
+    router.use("/api/junglers", JunglersRoutes.routes);
     router.use("/api/personajes", PersonajesRoutes.routes);
     router.use("/api/music", MusicRoutes.createRoutes(musicController));
 
